@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140722172824) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "information", force: true do |t|
     t.string   "category"
     t.string   "title"
@@ -21,6 +24,19 @@ ActiveRecord::Schema.define(version: 20140722172824) do
     t.string   "author"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "interactions", force: true do |t|
+    t.string   "interaction"
+    t.text     "description"
+    t.string   "picture"
+    t.string   "interactor"
+    t.string   "interacted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "address"
   end
 
 end
